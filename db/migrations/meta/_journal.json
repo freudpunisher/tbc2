@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1747130212984,
+      "tag": "0000_rare_random",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1747603922498,
+      "tag": "0001_oval_weapon_omega",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1747623432239,
+      "tag": "0002_gorgeous_eternals",
+      "breakpoints": true
+    }
+  ]
+}
