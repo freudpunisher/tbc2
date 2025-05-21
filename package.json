@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate:mysql",
+    "db:push": "drizzle-kit push:mysql"
   },
   "dependencies": {
     "@aws-sdk/client-rds-data": "latest",
