@@ -166,6 +166,6 @@ export default function ShopsPage() {
       )}
     </div>
     <SiteFooter/>
-    </div>
+</div>
   )
 }
