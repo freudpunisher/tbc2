@@ -51,7 +51,7 @@ export function ProductCard({ product, image, variants }: ProductCardProps) {
         </div>
         <div className="p-4">
           <h3 className="text-lg font-semibold truncate">{product.name}</h3>
-          <p className="font-bold text-yellow-600 mt-1">${product.price}</p>
+          <p className="font-bold text-yellow-600 mt-1">{product.price}BIF</p>
           <div className="flex flex-col gap-2 mt-3">
             <Button size="sm" variant="outline" onClick={openModal} className="w-full">
               Voir

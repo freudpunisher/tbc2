@@ -143,7 +143,7 @@ export function ProductDetailModal({ product, isOpen, onClose }: ProductDetailMo
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-2xl font-bold text-yellow-600">${product.price}</p>
+                  <p className="text-2xl font-bold text-yellow-600">{product.price}BIF</p>
                   <p className="text-sm text-gray-500 mt-1">
                     Catégorie: <span className="font-medium">{product.category || "Non spécifié"}</span>
                   </p>
@@ -221,7 +221,7 @@ export function ProductDetailModal({ product, isOpen, onClose }: ProductDetailMo
                     {added ? "Ajouté au panier" : "Ajouter au panier"}
                     <ShoppingBag className="ml-2 h-5 w-5" />
                   </Button>
-                  <div className="flex gap-2">
+                  {/* <div className="flex gap-2">
                     <Button variant="outline" size="icon" className="rounded-full">
                       <Heart className="h-5 w-5" />
                       <span className="sr-only">Ajouter aux favoris</span>
@@ -230,7 +230,7 @@ export function ProductDetailModal({ product, isOpen, onClose }: ProductDetailMo
                       <Share2 className="h-5 w-5" />
                       <span className="sr-only">Partager</span>
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2 } from 'lucide-react'
 import { toast } from "sonner"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 interface Video {
   id: number
@@ -59,6 +61,8 @@ export default function PublicitePage() {
   }, [])
 
   return (
+    <div className="min-h-screen">
+<SiteHeader/>
     <div className="container mx-auto py-24 px-4 mt-16">
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-yellow-600 mb-4">Nos Vidéos</h1>
@@ -135,6 +139,8 @@ export default function PublicitePage() {
           </TabsContent>
         </Tabs>
       )}
+    </div>
+    <SiteFooter/>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { SiteHeader } from "@/components/site-header"
 import { CheckCircle, Users, Award, TrendingUp, Clock } from "lucide-react"
+import { SiteFooter } from "@/components/site-footer"
 
 export default function AboutPage() {
   // Animation variants
@@ -444,7 +445,8 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-10">
+      <SiteFooter/>
+      {/* <footer className="bg-gray-800 text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
@@ -464,7 +466,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

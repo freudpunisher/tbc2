@@ -1,139 +1,78 @@
-// Utility functions for API calls
+// lib/api.ts
+
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
+
+if (!BASE_URL) {
+  throw new Error('Missing NEXT_PUBLIC_API_BASE_URL in your .env.local')
+}
+
+async function handleFetch(path: string, init?: RequestInit) {
+  const res = await fetch(`${BASE_URL}${path}`, init)
+  if (!res.ok) {
+    const text = await res.text()
+    throw new Error(`API error (${res.status}): ${text}`)
+  }
+  return res.json()
+}
 
 // Products
-export async function getProducts(options?: {
+export function getProducts(options?: {
   category?: string
   isBestseller?: boolean
   isNew?: boolean
 }) {
   const params = new URLSearchParams()
-
-  if (options?.category) {
-    params.append("category", options.category)
-  }
-
-  if (options?.isBestseller) {
-    params.append("bestseller", "true")
-  }
-
-  if (options?.isNew) {
-    params.append("new", "true")
-  }
-
-  const queryString = params.toString() ? `?${params.toString()}` : ""
-  const response = await fetch(`/api/products${queryString}`)
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch products")
-  }
-
-  return response.json()
+  if (options?.category)    params.append("category", options.category)
+  if (options?.isBestseller) params.append("bestseller", "true")
+  if (options?.isNew)        params.append("new",        "true")
+  const qs = params.toString() ? `?${params}` : ""
+  return handleFetch(`/api/products${qs}`)
 }
 
-export async function getProductById(id: number) {
-  const response = await fetch(`/api/products/${id}`)
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch product")
-  }
-
-  return response.json()
+export function getProductById(id: number) {
+  return handleFetch(`/api/products/${id}`)
 }
 
 // Carousel Images
-export async function getCarouselImages() {
-  const response = await fetch("/api/carousel")
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch carousel images")
-  }
-
-  return response.json()
+export function getCarouselImages() {
+  return handleFetch("/api/carousel/active")
 }
 
 // Team Members
-export async function getTeamMembers() {
-  const response = await fetch("/api/team")
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch team members")
-  }
-
-  return response.json()
+export function getTeamMembers() {
+  return handleFetch("/api/team")
 }
 
 // Milestones
-export async function getMilestones() {
-  const response = await fetch("/api/milestones")
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch milestones")
-  }
-
-  return response.json()
+export function getMilestones() {
+  return handleFetch("/api/milestones")
 }
 
 // Company Values
-export async function getCompanyValues() {
-  const response = await fetch("/api/values")
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch company values")
-  }
-
-  return response.json()
+export function getCompanyValues() {
+  return handleFetch("/api/values")
 }
 
 // Contact Info
-export async function getContactInfo(type?: string) {
+export function getContactInfo(type?: string) {
   const params = new URLSearchParams()
-
-  if (type) {
-    params.append("type", type)
-  }
-
-  const queryString = params.toString() ? `?${params.toString()}` : ""
-  const response = await fetch(`/api/contact${queryString}`)
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch contact info")
-  }
-
-  return response.json()
+  if (type) params.append("type", type)
+  const qs = params.toString() ? `?${params}` : ""
+  return handleFetch(`/api/contact${qs}`)
 }
 
 // FAQ Items
-export async function getFaqItems(category?: string) {
+export function getFaqItems(category?: string) {
   const params = new URLSearchParams()
-
-  if (category) {
-    params.append("category", category)
-  }
-
-  const queryString = params.toString() ? `?${params.toString()}` : ""
-  const response = await fetch(`/api/faq${queryString}`)
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch FAQ items")
-  }
-
-  return response.json()
+  if (category) params.append("category", category)
+  const qs = params.toString() ? `?${params}` : ""
+  return handleFetch(`/api/faq${qs}`)
 }
 
 // About Content
-export async function getAboutContent(section?: string) {
+export function getAboutContent(section?: string) {
   const params = new URLSearchParams()
-
-  if (section) {
-    params.append("section", section)
-  }
-
-  const queryString = params.toString() ? `?${params.toString()}` : ""
-  const response = await fetch(`/api/about${queryString}`)
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch about content")
-  }
-
-  return response.json()
+  if (section) params.append("section", section)
+  const qs = params.toString() ? `?${params}` : ""
+  return handleFetch(`/api/about${qs}`)
 }

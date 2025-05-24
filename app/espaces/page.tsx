@@ -9,6 +9,8 @@ import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 interface Shop {
   id: number
@@ -109,6 +111,8 @@ export default function ShopsPage() {
   }, [])
 
   return (
+    <div className="min-h-screen">
+<SiteHeader/>
     <div className="container mx-auto px-4 py-24 mt-16">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">Nos Boutiques</h1>
@@ -160,6 +164,8 @@ export default function ShopsPage() {
           </TabsContent>
         </Tabs>
       )}
+    </div>
+    <SiteFooter/>
     </div>
   )
 }

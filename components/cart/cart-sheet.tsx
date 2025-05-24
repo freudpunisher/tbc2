@@ -54,7 +54,7 @@ export function CartSheet() {
               <div className="space-y-1.5">
                 <div className="flex justify-between">
                   <span className="font-medium">Sous-total</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>{totalPrice.toFixed(2)}BIF</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Livraison</span>
@@ -67,14 +67,14 @@ export function CartSheet() {
                 <Separator className="my-2" />
                 <div className="flex justify-between text-lg font-semibold">
                   <span>Total</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>{totalPrice.toFixed(2)}BIF</span>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Button asChild className="w-full bg-yellow-600 hover:bg-yellow-700">
+                {/* <Button asChild className="w-full bg-yellow-600 hover:bg-yellow-700">
                   <Link href="/checkout">Passer à la caisse</Link>
-                </Button>
+                </Button> */}
                 <Button variant="outline" className="w-full" onClick={() => clearCart()}>
                   Vider le panier
                 </Button>

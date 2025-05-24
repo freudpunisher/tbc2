@@ -21,7 +21,7 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
       <div className="ml-4 flex flex-1 flex-col">
         <div className="flex justify-between text-base font-medium">
           <h3>{item.name}</h3>
-          <p className="ml-4">${(item.price * item.quantity).toFixed(2)}</p>
+          <p className="ml-4">{(item.price * item.quantity).toFixed(2)}BIF</p>
         </div>
         <p className="mt-1 text-sm text-gray-500">{item.category}</p>
 
